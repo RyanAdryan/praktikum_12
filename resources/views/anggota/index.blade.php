@@ -8,8 +8,12 @@
 </head>
 <body>
     
-    <div class="container mt-4 mx-auto" style="max-width: 75%;">
-        <h2 class="mb-4">Daftar Anggota</h2>
+    <div class="container mt-4" style="max-width: 75%;">
+
+        <div class="d-flex justify-content-between align-items-center mb-0">
+            <h1 class="d-flex justify-content-between align-items-center mb-4">Daftar Anggota</h1>
+            <a class="btn btn-primary  mb-0" href="{{ route('anggota.create') }}">Tambah Anggota</a>
+        </div>
         <!-- Tables -->
         <table class="table">
             <thead class="table-dark">
@@ -21,14 +25,14 @@
                     <th>Aksi</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody class="align-middle">
                 @forelse ($anggotas as $anggota)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $anggota->nama }}</td>
                     <td>{{ $anggota->email }}</td>
-                    <td> <img src={{ asset('storage/ $anggota->foto_profile')}}</td>
-                    <td>{{ $anggota->foto_profile }}</td>
+                    <td class="p-0"> <img src="{{ asset('storage/' . $anggota->foto_profile) }}" width="120" height="120"> </td>
+                    <!-- <td>{{ $anggota->foto_profile }}</td> -->
                     <td>show Edit Delete</td>
                 </tr>
                 @empty
